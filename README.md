@@ -1,8 +1,9 @@
-# CodesoftTask5
+Task 5
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+
 class Student {
     private String id;
     private String name;
@@ -13,20 +14,25 @@ class Student {
         this.name = name;
         this.age = age;
     }
+
     public String getId() {
         return id;
     }
+
     public String getName() {
         return name;
     }
+
     public int getAge() {
         return age;
     }
+
     @Override
     public String toString() {
         return "Student ID: " + id + ", Name: " + name + ", Age: " + age;
     }
 }
+
 class StudentManagementSystem {
     private List<Student> students;
     private Scanner scanner;
@@ -35,6 +41,7 @@ class StudentManagementSystem {
         students = new ArrayList<>();
         scanner = new Scanner(System.in);
     }
+
     public void addStudent() {
         System.out.print("Enter student ID: ");
         String id = scanner.nextLine();
@@ -55,7 +62,8 @@ class StudentManagementSystem {
         students.add(new Student(id, name, age));
         System.out.println("Student added successfully.");
     }
-  public void displayAllStudents() {
+
+    public void displayAllStudents() {
         if (students.isEmpty()) {
             System.out.println("No students found.");
         } else {
@@ -65,12 +73,14 @@ class StudentManagementSystem {
             }
         }
     }
+
     public void exit() {
         System.out.println("Exiting the Student Management System. Goodbye!");
         scanner.close();
         System.exit(0);
     }
 }
+
 public class Main {
     public static void main(String[] args) {
         StudentManagementSystem sms = new StudentManagementSystem();
@@ -82,8 +92,10 @@ public class Main {
             System.out.println("2. Display all students");
             System.out.println("3. Exit");
             System.out.print("Enter your choice: ");
+
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume newline
+
             switch (choice) {
                 case 1:
                     sms.addStudent();
